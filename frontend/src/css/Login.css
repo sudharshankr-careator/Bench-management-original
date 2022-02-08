@@ -1,0 +1,26 @@
+.img1 {
+  width: 39rem;
+}
+@media only screen and (max-width: 1023px) {
+  .img1 {
+    width: 28rem;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .img1 {
+    width: 24rem;
+    margin-left: -o.5rem;
+  }
+  .inp1 {
+    margin-left: "-1rem";
+    margin-top: ".rem";
+  }
+}
+
+.back {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}

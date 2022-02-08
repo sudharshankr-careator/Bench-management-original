@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
+.Dash-background {
+  margin: 0;
+
+  border-radius: 0.7rem;
+}
+
+.DashRow {
+  display: flex;
+  justify-content: center;
+  align-content: space-around;
+}
+
+.cardData {
+  height: 8.5rem;
+  margin-top: 4rem;
+  width: 12rem;
+  margin: 1.5rem;
+  border-radius: 0.7rem;
+  font-family: "Roboto', sans-serif";
+}
+.addSize {
+  font-size: 1rem;
+  text-align: center;
+  font-family: "Roboto', sans-serif";
+  font-weight: 500;
+}
+
+@media only screen and (max-width: 1024px) {
+  .cardData {
+    height: 8rem;
+    margin-top: 3rem;
+    width: 10rem;
+  }
+
+  .boldNumbers {
+    font-size: 1rem;
+    margin-top: 0rem;
+  }
+
+  .addSize {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .cardData {
+    height: 6.4rem;
+    margin-top: 2.9rem;
+    width: 10rem;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .cardData {
+    height: 4.7rem;
+    margin-top: 3rem;
+    width: 5.2rem;
+  }
+  .addSize {
+    font-size: 10px;
+    margin-left: -18px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .cardData {
+    height: 4.5rem;
+    margin-top: 2.9rem;
+    width: 10rem;
+  }
+  .addSize {
+    font-size: 0.8rem;
+    margin-left: -1.3rem;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .cardData {
+    height: 5rem;
+    margin-top: 2.9rem;
+    width: 10rem;
+  }
+  .addSize {
+    font-size: 0.9rem;
+    margin-left: -1.2rem;
+  }
+}

@@ -1,0 +1,47 @@
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Document</title>
+    <link
+      href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css'
+      rel='stylesheet'
+      integrity='sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x'
+      crossorigin='anonymous'
+    />
+    <script
+      src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js'
+      integrity='sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p'
+      crossorigin='anonymous'
+    ></script>
+    <script
+      src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js'
+      integrity='sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT'
+      crossorigin='anonymous'
+    ></script>
+
+  </head>
+  <body>
+
+    <div class='container'>
+      <div class='row text-center'>
+        <div class='col-md-6 offset-md-1 shadow shadow-lg'>
+          <h1 class='mb-4'>Request for Reset Password</h1>
+          <hr />
+          <h5 class='text-secondary'>Hey {{name}}✋,</h5>
+          <h5 class='text-secondary'>You're receiving this e-mail because you
+            requested a password reset for your Bench Management account.</h5>
+          <h5>Please click below to confirm your email👇</h5>
+          <h5 class='text-secondary'>
+            <a href='{{url}}' class='btn btn-success' aria-current='page'>Reset
+              Password</a>
+          </h5>
+          <h5 class='text-secondary'>If you did not request this email you can
+            safely ignore it.🙂</h5>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

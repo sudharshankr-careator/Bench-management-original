@@ -1,0 +1,356 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Role {
+  id: ID!
+  role: String!
+  description: String
+  createdat: DateTime!
+  updatedat: DateTime!
+  createdby: String!
+  updatedby: String!
+  isactive: Boolean!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type User {
+  userid: String!
+  email: String!
+  username: String!
+  passwordhash: String
+  mobile: String!
+  profilepicture: String!
+  lastlogin: DateTime!
+  usertoken: String!
+  firsttimelogin: Boolean!
+  updatedat: DateTime!
+  createdby: String!
+  updatedby: String!
+  isactive: Boolean!
+  userrole: UserRole!
+}
+
+type Jwt {
+  token: String!
+  userid: String!
+  username: String!
+  email: String!
+  role: String!
+  firsttimelogin: Boolean!
+}
+
+type UserRole {
+  id: ID!
+  isdefault: Boolean
+  userid: String
+  roleid: Int
+  user: User!
+  role: Role!
+}
+
+type Note {
+  id: ID!
+  notes: String
+  resourceid: Float
+  resource: Resource!
+  user: User!
+  createdat: DateTime!
+  updatedat: DateTime!
+  createdby: String
+  updatedby: String
+}
+
+type Resource {
+  id: ID!
+  fullname: String
+  empid: String
+  doj: String
+  gender: String
+  primaryphonenumber: String
+  secondaryphonenumber: String
+  emailid: String
+  personalemailid: String
+  designation: String
+  accname: String
+  accountmanagerid: String
+  accmanager: User
+  skills: String
+  projectreleasedate: String
+  projectreleasereason: String
+  comments: String
+  statuscode: String
+  resumeid: Float
+  document: Document
+  notes: [Note!]
+  createdat: DateTime!
+  updatedat: DateTime!
+  createdby: String
+  updatedby: String
+  isactive: Boolean
+  isam: Boolean
+}
+
+type Document {
+  id: ID!
+  documenttype: String
+  documentname: String
+  description: String
+  fileurl: String
+  filename: String
+  fileextension: String
+  remarks: String
+  createdat: DateTime!
+  updatedat: DateTime!
+  createdby: String!
+  updatedby: String!
+  isactive: Boolean
+  resourceid: Float
+  resource: Resource!
+}
+
+type Status {
+  statuscode: String!
+  status: String!
+}
+
+type Query {
+  alluser: [User!]!
+  user(id: String!): User!
+  findUserByEmail(email: String!): User!
+  findUserByMobile(mobile: String!): User!
+  allrole: [Role!]!
+  role(id: Int!): Role!
+  findByRole(role: String!): Role!
+  alluserrole: [UserRole!]!
+  findacc: [UserRole!]!
+  userrole(id: Int!): UserRole!
+  alldocument: [Document!]!
+  document(id: Int!): Document!
+  allstatuss: [Status!]!
+  status(statuscode: String!): Status!
+  allresources: [Resource!]!
+  findActiveAndInActiveResource(isactive: Boolean!): [Resource!]!
+  findbyAccountManger(accountmanagerid: String!): [Resource!]!
+  findByEmail(careatoremail: String!): Resource!
+  findAMACount(accountmanagerid: String!): Float!
+  findAMVCount(accountmanagerid: String!): Float!
+  findAMBCount(accountmanagerid: String!): Float!
+  findAMLCount(accountmanagerid: String!): Float!
+  findACount: Float!
+  findVCount: Float!
+  findBCount: Float!
+  findLCount: Float!
+  resource(id: Int!): Resource!
+  allnotes: [Note!]!
+  note(id: Int!): Note!
+  findNoteByResourceid(resourceid: Int!): [Note!]!
+}
+
+type Mutation {
+  createUser(createUserInput: CreateUserInput!): User!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+  removeUser(id: String!): User!
+  updatePassword(updateUserInput: UpdateUserInput!): User!
+  createRole(createRoleInput: CreateRoleInput!): Role!
+  updateRole(updateRoleInput: UpdateRoleInput!): Role!
+  removeRole(id: Int!): Role!
+  createUserRole(createUserInput: CreateUserRoleInput!): UserRole!
+  updateUserRole(updateUserRoleInput: UpdateUserRoleInput!): UserRole!
+  removeUserRole(id: Int!): UserRole!
+  login(login: LoginInput!): Jwt!
+  forgotpassword(forgot: ForgotDto!): User!
+  createDocument(createDocumentInput: CreateDocumentInput!): Document!
+  updateDocument(updateDocumentInput: UpdateDocumentInput!): Document!
+  removeDocument(id: Int!): Document!
+  createStatus(createStatusInput: CreateStatusInput!): Status!
+  updateStatus(updateStatusInput: UpdateStatusInput!): Status!
+  removeStatus(statuscode: String!): Status!
+  createResource(createResourceInput: CreateResourceInput!): Resource!
+  updateResource(updateResourceInput: UpdateResourceInput!): Resource!
+  removeResource(id: Int!): Resource!
+  createNote(createNoteInput: CreateNoteInput!): Note!
+  updateNote(updateNoteInput: UpdateNoteInput!): Note!
+  removeNote(id: Int!): Note!
+}
+
+input CreateUserInput {
+  email: String!
+  username: String!
+  passwordhash: String
+  mobile: String!
+  profilepicture: String
+  lastlogin: DateTime
+  usertoken: String
+  firsttimelogin: Boolean
+  isactive: Boolean
+  roleid: Float
+}
+
+input UpdateUserInput {
+  email: String
+  username: String
+  passwordhash: String
+  mobile: String
+  profilepicture: String
+  lastlogin: DateTime
+  usertoken: String
+  firsttimelogin: Boolean
+  isactive: Boolean
+  roleid: Float
+  userid: String!
+}
+
+input CreateRoleInput {
+  role: String!
+  description: String
+  createdBy: String
+  updatedBy: String
+  isActive: Boolean
+}
+
+input UpdateRoleInput {
+  role: String
+  description: String
+  createdBy: String
+  updatedBy: String
+  isActive: Boolean
+  id: Int!
+}
+
+input CreateUserRoleInput {
+  roleid: Float!
+  userid: String
+  isdefault: Boolean
+}
+
+input UpdateUserRoleInput {
+  roleid: Float
+  userid: String
+  isdefault: Boolean
+  id: Int!
+}
+
+input LoginInput {
+  email: String!
+  passwordhash: String!
+}
+
+input ForgotDto {
+  email: String!
+  userToken: String
+  host1: String
+}
+
+input CreateDocumentInput {
+  documenttype: String
+  documentname: String
+  description: String
+  fileurl: String
+  filename: String
+  fileextension: String
+  remarks: String
+  createdby: String
+  updatedby: String
+  isactive: Boolean
+  resourceid: Float
+}
+
+input UpdateDocumentInput {
+  documenttype: String
+  documentname: String
+  description: String
+  fileurl: String
+  filename: String
+  fileextension: String
+  remarks: String
+  createdby: String
+  updatedby: String
+  isactive: Boolean
+  resourceid: Float
+  id: Int!
+}
+
+input CreateStatusInput {
+  statuscode: String!
+  status: String!
+  createdby: String
+  updatedby: String
+  isactive: Boolean
+}
+
+input UpdateStatusInput {
+  statuscode: String
+  status: String
+  createdby: String
+  updatedby: String
+  isactive: Boolean
+}
+
+input CreateResourceInput {
+  fullname: String
+  empid: String
+  doj: String
+  gender: String
+  primaryphonenumber: String
+  secondaryphonenumber: String
+  emailid: String
+  personalemailid: String
+  designation: String
+  accname: String
+  accountmanagerid: String
+  skills: String
+  projectreleasedate: String
+  projectreleasereason: String
+  statuscode: String
+  resumeid: Float
+  createdby: String
+  updatedby: String
+  comments: String
+  isactive: Boolean
+  isam: Boolean
+}
+
+input UpdateResourceInput {
+  fullname: String
+  empid: String
+  doj: String
+  gender: String
+  primaryphonenumber: String
+  secondaryphonenumber: String
+  emailid: String
+  personalemailid: String
+  designation: String
+  accname: String
+  accountmanagerid: String
+  skills: String
+  projectreleasedate: String
+  projectreleasereason: String
+  statuscode: String
+  resumeid: Float
+  createdby: String
+  updatedby: String
+  comments: String
+  isactive: Boolean
+  isam: Boolean
+  id: Int!
+}
+
+input CreateNoteInput {
+  notes: String
+  createdby: String
+  updatedby: String
+  resourceid: Float
+}
+
+input UpdateNoteInput {
+  notes: String
+  createdby: String
+  updatedby: String
+  resourceid: Float
+  id: Int!
+}

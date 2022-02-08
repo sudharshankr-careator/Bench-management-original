@@ -1,0 +1,52 @@
+@import '~antd/dist/antd.css';
+.marginbottom {
+  margin-top: -2rem;
+}
+.green {
+  background-color: rgb(220, 248, 220);
+}
+.white {
+  background-color: white;
+}
+.admintable,
+.addsociety {
+  padding: 0.1rem;
+  margin-bottom: 0.5rem;
+  box-shadow: rgba(22, 1, 1, 0.795) 0px 0px 0px 1px;
+  border-radius: 0.35rem;
+  background-color: white;
+}
+.logoimg {
+  cursor: pointer;
+  margin-left: 0.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.vis {
+  visibility: hidden;
+}
+.center {
+  margin-top: 1.6rem;
+}
+.top {
+  margin-top: 1rem;
+}
+.back {
+  background-image: url('./assets/loginwallpaper.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  opacity: 0.4;
+  /* filter: blur(0.2rem);
+  -webkit-filter: blur(0.2rem); */
+}
+.back1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 200;
+  width: 80%;
+  padding: 20px;
+}
